@@ -1,3 +1,5 @@
+import "./styles/index.sass";
+
 const elvenShieldRecipe = {
   leatherStrips: 2,
   ironIngot: 1,
