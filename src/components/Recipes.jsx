@@ -21,7 +21,9 @@ const Recipes = () => {
   return (
     <div>
       <h3>Current Recipe:</h3>
-      <button onClick={() => setRecipe(elvenShieldRecipe)}>Elven Shield</button>
+      <button onClick={() => setRecipe(elvenShieldRecipe)}>
+        Bruh Elven Shield
+      </button>
       <button onClick={() => setRecipe(elvenGauntletsRecipe)}>
         Elven Gauntlets
       </button>
