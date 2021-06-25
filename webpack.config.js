@@ -11,12 +11,32 @@ if (process.env.NODE_ENV === "production") {
 module.exports = {
   mode: mode,
   target: target,
+  output: {
+    // this places all images processed in an image folder
+    assetModuleFilename: "images/[hash][ext][query]",
+    clean: true,
+  },
   module: {
     rules: [
       {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+
+        type: "asset",
+
+        // parser: {
+        //   dataUrlCondition: {
+        //     maxSize: 30 * 1024,
+        //   },
+        // },
+      },
+      {
         test: /\.(s[ac]|c)ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            // This is required for asset imports in CSS, such as url()
+            options: { publicPath: "" },
+          },
           "css-loader",
           "postcss-loader",
           "sass-loader",
